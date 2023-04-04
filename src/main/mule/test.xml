@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="17098496-5e0e-4229-845c-e9af82f1b912" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+<!-- 	<ldap:config name="LDAP_Configuration" doc:name="LDAP Configuration" doc:id="9f07cfa2-e356-4fe0-a494-2471ab3b3510" >
+		<ldap:basic-connection authDn="uid=admin,ou=system" authPassword="secret" authentication="simple" url="ldap://localhost:10389" />
+	</ldap:config> -->
+	<flow name="testFlow" doc:id="7ce36c15-d2b1-49ad-8c4a-63427f934030" >
+		<scheduler doc:name="Scheduler" doc:id="f890ecd5-4e49-484d-8f4e-df2471b3f8b8" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="10000"/>
+			</scheduling-strategy>
+		</scheduler>
+		<logger level="INFO" doc:name="Logger" doc:id="864de0fb-02dc-4fca-981f-566b9531834f" message="Test"/>
+	</flow>
+</mule>
