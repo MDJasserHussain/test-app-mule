@@ -12,14 +12,15 @@ jobs:
     
     strategy:
       matrix:
-        maven: [ '3.6.3', '3.8.7', '3.9.0' ]
+        maven: [ '3.8.6' ]
     
     steps:
     - uses: actions/checkout@v1
       name: checkout repo
       
-    - name: Build with maven
+    - name: Bsetup maven action
       with:
           maven-version: ${{ matrix.maven }}
       uses: JActions/maven-version@v1.2.0
       
+    - run: mvn clean
