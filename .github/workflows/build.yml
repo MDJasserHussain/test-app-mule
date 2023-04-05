@@ -4,15 +4,22 @@ on:
     - main
     - master
 
+
 jobs:
   build-job:
     name: build the jar
     runs-on: ubuntu-18.04
+    
+    strategy:
+      matrix:
+        maven: [ '3.6.3', '3.8.7', '3.9.0' ]
     
     steps:
     - uses: actions/checkout@v1
       name: checkout repo
       
     - name: Build with maven
+      with:
+          maven-version: ${{ matrix.maven }}
       uses: mvn clean install
       
