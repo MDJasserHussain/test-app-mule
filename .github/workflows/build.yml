@@ -21,5 +21,5 @@ jobs:
     - name: Build with maven
       with:
           maven-version: ${{ matrix.maven }}
-      uses: mvn clean install
+      uses: JActions/maven-version@v1.2.0
       
